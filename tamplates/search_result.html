@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIP News</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #d32f2f;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    
+    .news-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    .news-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      width: 300px;
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+    .news-card:hover {
+      transform: scale(1.03);
+    }
+    .news-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .news-content {
+      padding: 15px;
+    }
+    .news-content h3 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+      color: #333;
+    }
+    .news-content p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .source {
+      font-size: 0.8rem;
+      color: #888;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>VIP News</h1>
+  </header>
+
+  
+  
+  <div class="news-container">
+
+    {%for i in range(0,l)%}
+    <div class="news-card">
+      <img src="{{search[i]['img']}}" alt="News Image">
+      <div class="news-content">
+        <h3>{{search[i]['titles']}}</h3>
+        <p>{{search[i]['disc']}}</p>
+        <div class="source"><a href="{{search[i]['link']}}">{{search[i]['link']}}</a></div>
+      </div>
+    </div>
+    {%endfor%}
+  
+
+    
+  </div>
+</body>
+</html>

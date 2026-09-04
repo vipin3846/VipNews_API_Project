@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIP News</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #d32f2f;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      letter-spacing: 2px;
+    }
+    nav {
+      background: #b71c1c;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .search-bar {
+      text-align: center;
+      margin: 20px;
+    }
+    .search-bar input[type="text"] {
+      width: 50%;
+      padding: 10px;
+      border: 2px solid #d32f2f;
+      border-radius: 5px;
+    }
+    .search-bar button {
+      padding: 10px 20px;
+      background: #d32f2f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    .search-bar button:hover {
+      background: #b71c1c;
+    }
+
+    .weather-box {
+      width: 92%;
+      height: 25%;
+      margin-left: 2%;
+      background: linear-gradient(145deg, #ffffff, #dfe9f3);
+      border-radius: 20px;
+      box-shadow: 10px 10px 20px rgba(0,0,0,0.2),
+                  -10px -10px 20px rgba(255,255,255,0.8);
+      display: block;
+      align-items: center;
+      justify-content: space-around;
+      padding: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .weather-box:hover {
+      transform: scale(1.03);
+    }
+
+        .search-bar-weather {
+      width: 100%;
+      display:flex;
+      justify-content: right;
+      margin-bottom: 20px;
+    }
+
+    .search-bar-weather input {
+      width: 70%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      outline: none;
+      box-shadow: inset 2px 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .search-bar-weather button {
+      margin-left: 10px;
+      margin-top: 5px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background: #0077b6;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .search-bar-weather button:hover {
+      background: #005f87;
+    }
+
+    .weather-image img {
+      width: 120px;
+      height: 120px;
+      filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
+    }
+
+    .weather-info {
+      text-align: left;
+      color: #333;
+    }
+
+    .weather-info h2 {
+      margin: 0;
+      font-size: 2em;
+      color: #0077b6;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    }
+
+    .weather-info p {
+      margin: 8px 0;
+      font-size: 1.2em;
+    }
+
+    .highlight {
+      color: #ff6f00;
+      font-weight: bold;
+    }
+
+    .category {
+      margin: 30px;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .category h2 {
+      color: #d32f2f;
+      border-bottom: 2px solid #d32f2f;
+      padding-bottom: 10px;
+    }
+    .news-item {
+      margin: 15px 0;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    .news-item:last-child {
+      border-bottom: none;
+    }
+    .news-item h3 {
+      margin: 0;
+      color: #333;
+    }
+    .news-item p {
+      margin: 5px 0 0;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>VIP News</h1>
+    <p>Your trusted source for the latest updates</p>
+  </header>
+
+  <nav>
+    <a href="{{url_for('home')}}">Home</a>
+    <a href="{{url_for('world')}}">World</a>
+    <a href="{{url_for('politics')}}">Politics</a>
+    <a href="{{url_for('sports')}}">Sports</a>
+    <a href="{{url_for('entertainment')}}">Entertainment</a>
+    <a href="{{url_for('technology')}}">Technology</a>
+  </nav>
+
+  <div class="search-bar">
+    <form action="{{url_for('searchresult')}}" method="post">
+    <input type="text" placeholder="Search news..."  id="search" name="search">
+    <button type="submit">Search</button>
+    </form>
+  </div>
+
+
+  <div class="category">
+    <h2>Top Headlines</h2>
+    {%for i in range(0,10)%}
+    <div class="news-item">
+      <h3><a href="{{headlines[i]['link']}}">{{headlines[i]['titles']}}</a></h3>
+      <p>{{headlines[i]['disc']}}</p>
+    </div>
+    {%endfor%}
+  </div>
+
+
+  
+  <div class="category">
+    <h2>Weather</h2>
+    <div class="news-item">
+          <div class="weather-box">
+
+    <div class="search-bar-weather">
+      <form action="{{url_for('home')}}" method="post">
+      <input type="text" placeholder="Enter city name..." name="weather_search">
+      <button>Search</button>
+      </form>
+    </div>
+
+    <div class="weather-image">
+      <img src="https://cdn-icons-png.flaticon.com/512/2698/2698194.png" alt="3D Weather Icon">
+    </div>
+    <div class="weather-info">
+      <h2>{{weather["city"]}} - {{weather["sky"]}} ☀️</h2>
+      <p>Temperature: <span class="highlight">{{weather["temprature"]}}</span></p>
+      <p>Humidity: <span class="highlight">{{weather["humidity"]}}</span></p>
+      <p>Wind Speed: <span class="highlight">{{weather["wind_speed"]}} km/h</span></p>
+    </div>
+  </div>
+    </div>
+  </div>
+
+
+  <div class="category">
+    <h2>Sports</h2>
+    {%for i in range(0,10)%}
+    <div class="news-item">
+      <h3><a href="{{final[i]['link']}}">{{final[i]['titles']}}</a></h3>
+      <p>{{final[i]['disc']}}</p>
+    </div>
+    {%endfor%}
+  </div>
+
+  <div class="category">
+    <h2>Entertainment</h2>
+    {%for i in range(0,10)%}
+    <div class="news-item">
+      <h3><a href="{{entertain[i]['link']}}">{{entertain[i]['titles']}}</a></h3>
+      <p>{{entertain[i]['disc']}}</p>
+    </div>
+    {%endfor%}
+  </div>
+
+  <div class="category">
+    <h2>Technology</h2>
+    {%for i in range(0,10)%}
+    <div class="news-item">
+      <h3><a href="{{tech[i]['link']}}">{{tech[i]['titles']}}</a></h3>
+      <p>{{tech[i]['disc']}}</p>
+    </div>
+    {%endfor%}
+  </div>
+
+
+</body>
+</html>
