@@ -18,7 +18,7 @@ Homepage with Top Headlines and category-wise news. </hr>
 </hr></br>
 Integrated Weather Information section with real-time updates. </hr>
 <img width="1300" height="564" alt="inhome" src="https://github.com/user-attachments/assets/18f724bd-a18a-4beb-8645-33b53f51b446" />
- </hr> </br>
+ </hr> </br></br>
 Grid-style layout for news articles with images, headlines, and links. </hr>
 <img width="1331" height="599" alt="innav" src="https://github.com/user-attachments/assets/51a19595-0eb6-4db5-bf27-3ecd8fde43a2" />
 </hr></br></br>
