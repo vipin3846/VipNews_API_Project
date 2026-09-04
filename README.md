@@ -1,1 +1,31 @@
-# VipNews_API_Project
+🚀 VipNews – Flask API Project
+VipNews is a dynamic news and weather web application built using Flask (Python), with a clean frontend powered by HTML & CSS.
+
+🔑 Key Features
+NewsAPI Integration: Fetches real-time news articles from multiple categories including Sports, Politics, Technology, World, and more.
+
+OpenWeatherMap API: Provides live weather updates with a city-based search bar for user convenience.
+
+Search Functionality: Users can search for specific topics or keywords to instantly filter relevant news.
+
+Category Navigation: Quick links to explore news by category for a personalized experience.
+
+Responsive Frontend: Designed with HTML & CSS for a simple, attractive, and user-friendly interface.
+
+🖼 Screenshots
+Homepage with Top Headlines and category-wise news.
+<img width="1336" height="592" alt="home" src="https://github.com/user-attachments/assets/6320d9b0-1400-4d53-97fd-23689bb8481c" />
+
+Integrated Weather Information section with real-time updates.
+<img width="1300" height="564" alt="inhome" src="https://github.com/user-attachments/assets/18f724bd-a18a-4beb-8645-33b53f51b446" />
+
+Grid-style layout for news articles with images, headlines, and links.
+<img width="1331" height="599" alt="innav" src="https://github.com/user-attachments/assets/51a19595-0eb6-4db5-bf27-3ecd8fde43a2" />
+
+
+⚙️ Tech Stack
+Backend: Flask (Python)
+
+APIs: NewsAPI.org, OpenWeatherMap.org
+
+Frontend: HTML, CSS
